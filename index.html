@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestion des Finances des Scouts</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Lien vers la police Open Sans depuis Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#" id="link-home">Accueil</a></li>
+          <li><a href="#" id="link-categories">Catégories</a></li>
+          <li><a href="#" id="link-transactions">Transactions</a></li>
+          <li><a href="#" id="link-reserve">Réserve</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section Accueil -->
+      <section id="home-section" class="section active">
+        <h1>Gestion des Finances des Scouts</h1>
+        <p>
+          Bienvenue sur le tableau de bord de gestion des finances. Utilisez la
+          navigation pour accéder aux différentes sections.
+        </p>
+      </section>
+
+      <!-- Section Catégories -->
+      <section id="categories-section" class="section">
+        <h2>Gérer les Catégories</h2>
+        <form id="category-form">
+          <input
+            type="text"
+            id="new-category"
+            placeholder="Nom de la Catégorie"
+            required
+          />
+          <button type="submit">Ajouter la Catégorie</button>
+        </form>
+        <ul id="category-list"></ul>
+      </section>
+
+      <!-- Section Transactions -->
+      <section id="transactions-section" class="section">
+        <h2>Voir les Dépenses par Catégorie</h2>
+        <form id="transaction-form">
+          <input
+            type="text"
+            id="description"
+            placeholder="Description"
+            required
+          />
+          <input type="number" id="amount" placeholder="Montant (€)" required />
+          <select id="transaction-category" required>
+            <option value="" disabled selected>Choisir une Catégorie</option>
+          </select>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="type" value="income" checked /> Revenu
+            </label>
+            <label>
+              <input type="radio" name="type" value="expense" /> Dépense
+            </label>
+          </div>
+          <button type="submit">Ajouter la Transaction</button>
+        </form>
+        <select id="category-filter">
+          <option value="all">Toutes les Catégories</option>
+        </select>
+        <ul id="filtered-transactions"></ul>
+      </section>
+
+      <!-- Section Réserve -->
+      <section id="reserve-section" class="section">
+        <h2>Réserver de l'Argent</h2>
+        <form id="reserve-form">
+          <input
+            type="number"
+            id="reserve-amount"
+            placeholder="Montant à Réserver (€)"
+            required
+          />
+          <button type="submit">Réserver</button>
+        </form>
+        <p>Montant Total Réservé : <span id="total-reserve">0 €</span></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
